@@ -1,3 +1,10 @@
+"""
+Lab 12: Custom Assets
+Gavin Kidd
+This is a modification of the alien_invasion project to use custom assets for the background, rocketship, laser, and laser blast
+11/16/2025
+"""
+
 import sys
 import pygame
 from setting import Settings
@@ -68,7 +75,7 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             if self.ship.fire():
                 self.laser_sound.play()
-                self.laser_sound.fadeout(250)
+                self.laser_sound.fadeout(500)
         elif event.key == pygame.K_q:
             self.running = False
             pygame.quit()

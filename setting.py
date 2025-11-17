@@ -7,15 +7,15 @@ class Settings:
         self.screen_width: int = 1280
         self.screen_height: int = 720
         self.FPS = 60
-        self.bg_file = Path.cwd() / 'assets' / 'images' / 'Starbasesnow.png'
+        self.bg_file = Path.cwd() / 'assets' / 'images' / 'bg_space_seamless.png'
 
-        self.ship_file = Path.cwd() / 'assets' / 'images' / 'ship2(no bg).png'
+        self.ship_file = Path.cwd() / 'assets' / 'images' / 'cooler_ship.png'
         self.ship_w = 40
         self.ship_h = 60
         self.ship_speed = 5
 
-        self.bullet_file = Path.cwd() / 'assets' / 'images' / 'laserBlast.png'
-        self.laser_sound = Path.cwd() / 'assets' / 'images' / 'laser.mp3'
+        self.bullet_file = Path.cwd() / 'assets' / 'images' / 'laser_bulb_fire.png'
+        self.laser_sound = Path.cwd() / 'assets' / 'sound' / 'ship_laser_fire.mp3'
         self.bullet_speed = 7
         self.bullet_w = 25
         self.bullet_h = 80
