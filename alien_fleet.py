@@ -14,8 +14,6 @@ class AlienFleet:
         self.fleet_direction = self.settings.fleet_direction
         self.fleet_drop_speed = self.settings.fleet_drop_speed
 
-        self.create_fleet()
-
     def create_fleet(self) -> None:
         alien_w = self.settings.alien_w
         alien_h = self.settings.alien_h
@@ -48,10 +46,6 @@ class AlienFleet:
         for i in range(n, 0, -1):
             leading_space = n - i
             aliens_per_row = 2 * i - 1
-
-            #max_width = aliens_per_row + leading_space
-            #col = (fleet_w - max_width) // 2
-
             row_y = (n-i) * alien_h + y_offset
 
             for a in range(aliens_per_row):
