@@ -25,9 +25,10 @@ class AlienFleet:
 
         fleet_arrangement = {
             1: self._create_rectangle_fleet,
-            2: self._create_pyramid_fleet
+            2: self._create_pyramid_fleet,
+            3: self._create_diamond_fleet
         }
-        random_number = random.randint(1, 2)
+        random_number = random.randint(1, 3)
         fleet_arrangement[random_number](alien_h, alien_w, fleet_h, fleet_w, x_offset, y_offset)
 
     def _create_rectangle_fleet(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int, x_offset: int,
@@ -42,17 +43,40 @@ class AlienFleet:
 
     def _create_pyramid_fleet(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int, x_offset: int, y_offset: int):
         n = fleet_h
-
+        # space out ships
+        gap = 10
         for i in range(n, 0, -1):
             leading_space = n - i
             aliens_per_row = 2 * i - 1
-            row_y = (n-i) * alien_h + y_offset
+            row_y = (n-i) * (alien_h + gap) + y_offset
 
             for a in range(aliens_per_row):
                 column = leading_space + a
                 if 0 <= column < fleet_w:
-                    current_x = column * alien_w + x_offset
+                    current_x = column * (alien_w + gap) + x_offset
                     self._create_alien(current_x, row_y)
+
+    def _create_diamond_fleet(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int, x_offset: int, y_offset: int):
+        #Reduce height since shape is very big otherwise
+        n = fleet_h - 2
+        #space out ships
+        gap = 10
+        for i in range(1, n + 1):
+            leading_space = n - i
+            aliens_per_row = 2 * i - 1
+            row_y = (i - 1) * (alien_h + gap) + y_offset
+            for a in range(aliens_per_row):
+                current_x = (leading_space + a) * (alien_w + gap) + x_offset
+                self._create_alien(current_x, row_y)
+
+        #other half
+        for i in range(n -1, 0, -1):
+            leading_space = n - i
+            aliens_per_row = 2 * i - 1
+            row_y = (2*n - i -1) * (alien_h + gap) + y_offset
+            for a in range(aliens_per_row):
+                current_x = (leading_space + a) * (alien_w + gap) + x_offset
+                self._create_alien(current_x, row_y)
 
 
     def calculate_offsets(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int,
