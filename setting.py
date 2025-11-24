@@ -16,14 +16,14 @@ class Settings:
         self.starting_ship_count = 3
 
         self.bullet_file = Path.cwd() / 'assets' / 'images' / 'laser_bulb_fire.png'
-        self.laser_sound = Path.cwd() / 'assets' / 'sound' / 'ship_laser_fire.mp3'
-        self.impact_sound = Path.cwd() / 'assets' / 'sound' / 'impactSound.mp3'
+        self.laser_sound = Path.cwd() / 'assets' / 'sound' / 'weaponfire6.wav'
+        self.impact_sound = Path.cwd() / 'assets' / 'sound' / 'shortimpact.wav'
         self.bullet_speed = 7
         self.bullet_w = 25
         self.bullet_h = 80
         self.bullet_amount = 5
 
-        self.alien_file = Path.cwd() / 'assets' / 'images' / 'enemy_4.png'
+        self.alien_file = Path.cwd() / 'assets' / 'images' / 'drone_1_blue.png'
         self.alien_w = 40
         self.alien_h = 40
         self.fleet_speed = 2

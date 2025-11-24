@@ -36,7 +36,7 @@ class AlienInvasion:
         #Sounds
         pygame.mixer.init()
         self.laser_sound = pygame.mixer.Sound(self.setting.laser_sound)
-        self.laser_sound.set_volume(0.2)
+        self.laser_sound.set_volume(0.3)
 
         self.impact_sound = pygame.mixer.Sound(self.setting.impact_sound)
         self.impact_sound.set_volume(0.5)
