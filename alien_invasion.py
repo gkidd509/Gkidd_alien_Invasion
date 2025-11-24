@@ -1,8 +1,8 @@
 """
-Lab 12: Custom Assets
+Lab 13: Custom Assets
 Gavin Kidd
-This is a modification of the alien_invasion project to use custom assets for the background, rocketship, laser, and laser blast
-11/16/2025
+This is a modification of the alien_invasion project to use custom assets for the alien and alien fleet formation
+11/23/2025
 """
 
 import sys
@@ -10,6 +10,7 @@ import pygame
 from setting import Settings
 from ship import Ship
 from arsenal import Arsenal
+from alien import Alien
 
 class AlienInvasion:
 
@@ -34,6 +35,7 @@ class AlienInvasion:
 
         #Ship settings
         self.ship = Ship(self, Arsenal(self))
+        self.alien = Alien(self, 10,10)
 
 
     def run_game(self) -> None:
@@ -41,12 +43,14 @@ class AlienInvasion:
         while self.running:
             self._check_events()
             self.ship.update()
+            self.alien.update()
             self._update_screen()
             self.clock.tick(self.setting.FPS)
 
     def _update_screen(self) -> None:
         self.screen.blit(self.bg, (0, 0))
         self.ship.draw()
+        self.alien.draw_alien()
         pygame.display.flip()
 
     def _check_events(self) -> None:
