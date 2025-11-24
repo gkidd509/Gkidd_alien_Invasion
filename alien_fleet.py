@@ -1,4 +1,5 @@
 import pygame
+import random
 from alien import Alien
 from typing import TYPE_CHECKING
 
@@ -24,9 +25,12 @@ class AlienFleet:
         fleet_w, fleet_h = self.calculate_fleet_size(alien_w, screen_w, alien_h, screen_h)
         x_offset, y_offset = self.calculate_offsets(alien_h, alien_w, fleet_h, fleet_w, screen_w)
 
-
-        #if(level == 1):
-        self._create_rectangle_fleet(alien_h, alien_w, fleet_h, fleet_w, x_offset, y_offset)
+        fleet_arrangement = {
+            1: self._create_rectangle_fleet,
+            2: self._create_pyramid_fleet
+        }
+        random_number = random.randint(1, 2)
+        fleet_arrangement[random_number](alien_h, alien_w, fleet_h, fleet_w, x_offset, y_offset)
 
     def _create_rectangle_fleet(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int, x_offset: int,
                                 y_offset: int):
@@ -37,6 +41,25 @@ class AlienFleet:
                 if col % 2 == 0 or row % 2 == 0:
                     continue
                 self._create_alien(current_x, current_y)
+
+    def _create_pyramid_fleet(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int, x_offset: int, y_offset: int):
+        n = fleet_h
+
+        for i in range(n, 0, -1):
+            leading_space = n - i
+            aliens_per_row = 2 * i - 1
+
+            #max_width = aliens_per_row + leading_space
+            #col = (fleet_w - max_width) // 2
+
+            row_y = (n-i) * alien_h + y_offset
+
+            for a in range(aliens_per_row):
+                column = leading_space + a
+                if 0 <= column < fleet_w:
+                    current_x = column * alien_w + x_offset
+                    self._create_alien(current_x, row_y)
+
 
     def calculate_offsets(self, alien_h: int, alien_w: int, fleet_h: int, fleet_w: int,
                           screen_w: int) -> tuple[int, int]:

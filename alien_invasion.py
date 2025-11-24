@@ -39,7 +39,7 @@ class AlienInvasion:
         self.laser_sound.set_volume(0.3)
 
         self.impact_sound = pygame.mixer.Sound(self.setting.impact_sound)
-        self.impact_sound.set_volume(0.5)
+        self.impact_sound.set_volume(0.3)
 
         #Ship settings
         self.ship = Ship(self, Arsenal(self))
