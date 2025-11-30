@@ -5,28 +5,33 @@ if TYPE_CHECKING:
     from alien_invasion import AlienInvasion
     from arsenal import Arsenal
 
+
+
 class Ship:
-    def __init__(self, game: 'AlienInvasion', arsenal: 'Arsenal') -> None:
+    
+
+    def __init__(self, game: 'AlienInvasion', arsenal: 'Arsenal'):
         self.game = game
-        self.settings = game.setting
+        self.settings = game.settings
         self.screen = game.screen
         self.boundaries = self.screen.get_rect()
 
         self.image = pygame.image.load(self.settings.ship_file)
-        self.image = pygame.transform.scale(self.image, (self.settings.ship_w, self.settings.ship_h))
-
+        self.image = pygame.transform.scale(self.image, 
+            (self.settings.ship_w, self.settings.ship_h)
+            )
+        
         self.rect = self.image.get_rect()
         self._center_ship()
         self.moving_right = False
         self.moving_left = False
-
         self.arsenal = arsenal
 
     def _center_ship(self):
         self.rect.midbottom = self.boundaries.midbottom
         self.x = float(self.rect.x)
 
-    def update(self) -> None:
+    def update(self):
         # updating the position of the ship
         self._update_ship_movement()
         self.arsenal.update_arsenal()
@@ -40,15 +45,16 @@ class Ship:
 
         self.rect.x = self.x
 
-    def draw(self) -> None:
+    def draw(self):
         self.arsenal.draw()
         self.screen.blit(self.image, self.rect)
 
-    def fire(self) -> bool:
+    def fire(self):
         return self.arsenal.fire_bullet()
-
+    
     def check_collisions(self, other_group):
         if pygame.sprite.spritecollideany(self, other_group):
             self._center_ship()
             return True
         return False
+        
