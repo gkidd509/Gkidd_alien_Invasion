@@ -7,18 +7,50 @@ class Settings:
         self.screen_w: int = 1280
         self.screen_h: int = 720
         self.FPS = 60
+        """
+        Background credits:
+        Name: Space Background
+        Author: drakzlin
+        Link: https://opengameart.org/content/space-background-7
+        """
         self.bg_file = Path.cwd() / 'assets' / 'images' / 'bg_space_seamless.png'
         self.difficulty_scale = 1.1
         self.scores_file = Path.cwd() / 'Assets' / 'file' / 'scores.json'
 
+        """
+        Ship sprite credits:
+        Pack name: Various Spaceship models
+        Author: Sypher Zent
+        Link: https://opengameart.org/content/various-spaceship-models
+        """
         self.ship_file = Path.cwd() / 'assets' / 'images' / 'cooler_ship.png'
         self.ship_w = 40
         self.ship_h = 60
-
+        """
+        Laser image was taken from the "beams" image found in the assets folder included with the starter project.
+        """
         self.bullet_file = Path.cwd() / 'assets' / 'images' / 'laser_bulb_fire.png'
+        """
+        Laser sound credits:
+        Pack name: Space Battle Game Sounds (AstroMenace)
+        Author: Michael Kurinnoy
+        link: https://opengameart.org/content/space-battle-game-sounds-astromenace
+        """
         self.laser_sound = Path.cwd() / 'assets' / 'sound' / 'weaponfire6.wav'
+        """
+        Impact sound credits:
+        Sound name: Short Impact
+        Author: Soundsnap
+        Link: https://opengameart.org/content/short-impact
+        """
         self.impact_sound = Path.cwd() / 'assets' / 'sound' / 'shortimpact.wav'
 
+        """
+        Alien ship sprite credits:
+        Pack name: Various Spaceship models
+        Author: Sypher Zent
+        Link: https://opengameart.org/content/various-spaceship-models
+        """
         self.alien_file = Path.cwd() / 'assets' / 'images' / 'drone_1_blue.png'
         self.alien_w = 40
         self.alien_h = 40
@@ -31,7 +63,13 @@ class Settings:
         self.text_color = (255, 255, 255)
         self.button_font_size = 48
         self.HUD_font_size = 20
-        self.font_file = Path.cwd() / 'Assets' / 'Fonts' / 'Silkscreen' / 'Silkscreen-Bold.ttf'
+        """
+        Font Credits:
+        Name: Conthrax
+        Author: Typodermic Fonts
+        Link: https://www.dafont.com/conthrax.font
+        """
+        self.font_file = Path.cwd() / 'Assets' / 'Fonts' / 'Conthrax' / 'Conthrax-SemiBold.otf'
 
     def initialize_dynamic_settings(self):
         self.ship_speed = 5

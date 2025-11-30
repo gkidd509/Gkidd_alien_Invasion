@@ -1,8 +1,8 @@
 """
-Lab 13: Custom Assets
+Lab 14: Custom Assets
 Gavin Kidd
-This is a modification of the alien_invasion project to use custom assets for the alien and alien fleet formation
-11/23/2025
+This is a modification of the alien_invasion project to provide credits for all assets used
+11/30/2025
 """
 
 import sys
