@@ -28,7 +28,11 @@ class Ship:
         self.arsenal = arsenal
 
     def _center_ship(self):
-        self.rect.midbottom = self.boundaries.midbottom
+        bar_height = self.settings.bar_h
+        self.rect.midbottom = (
+            self.boundaries.centerx,
+            self.boundaries.bottom - bar_height
+        )
         self.x = float(self.rect.x)
 
     def update(self):

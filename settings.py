@@ -24,8 +24,8 @@ class Settings:
         Link: https://opengameart.org/content/various-spaceship-models
         """
         self.ship_file = Path.cwd() / 'assets' / 'images' / 'cooler_ship.png'
-        self.ship_w = 40
-        self.ship_h = 60
+        self.ship_w = 35
+        self.ship_h = 55
         """
         Laser image was taken from the "beams" image found in the assets folder included with the starter project.
         """
@@ -57,8 +57,8 @@ class Settings:
         self.fleet_direction = 1
 
         self.button_w = 200
-        self.button_h = 50
-        self.button_color = (0, 135, 50)
+        self.button_h = 75
+        self.button_color = (150, 35, 185)
 
         self.text_color = (255, 255, 255)
         self.button_font_size = 48
@@ -70,6 +70,9 @@ class Settings:
         Link: https://www.dafont.com/conthrax.font
         """
         self.font_file = Path.cwd() / 'Assets' / 'Fonts' / 'Conthrax' / 'Conthrax-SemiBold.otf'
+
+        self.bar_h = 40
+        self.bar_top_line_h = 3
 
     def initialize_dynamic_settings(self):
         self.ship_speed = 5
